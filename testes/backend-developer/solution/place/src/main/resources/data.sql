@@ -1,0 +1,11 @@
+DROP TABLE IF EXISTS place;
+ 
+CREATE TABLE place (
+  id INT AUTO_INCREMENT  PRIMARY KEY,
+  name VARCHAR(250) NOT NULL,
+  slug VARCHAR(250),
+  city VARCHAR(250),
+  state VARCHAR(250),
+  created_at TIMESTAMP,
+  update_at TIMESTAMP
+);
