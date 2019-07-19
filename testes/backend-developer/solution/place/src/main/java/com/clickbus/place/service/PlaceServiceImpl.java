@@ -27,6 +27,7 @@ public class PlaceServiceImpl implements PlaceService {
 	public Place editPlace(Place newPlace, Long id) {
 
 		return placeRepository.findById(id).map(place -> {
+			newPlace.setId(id);
 			return placeRepository.save(newPlace);
 		}).orElseThrow(() -> new PlaceNoContentException(id));
 

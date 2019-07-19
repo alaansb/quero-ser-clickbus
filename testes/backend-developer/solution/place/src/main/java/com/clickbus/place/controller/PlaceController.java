@@ -20,6 +20,7 @@ import com.clickbus.place.service.PlaceService;
 import com.clickbus.place.util.PlaceNoContentException;
 
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 
 @RestController
 @RequestMapping("v1/places")
@@ -32,26 +33,30 @@ public class PlaceController {
 
 		this.placeService = placeService;
 	}
-
+	
+	@ApiOperation("Get place by id")
 	@GetMapping(value = "/{idPlace}")
 	Place getPlaceById(@PathVariable("idPlace") Long idPlace) {
 
 		return placeService.getPlaceById(idPlace);
 	}
-
+	
+	@ApiOperation("Get places by name")
 	@GetMapping(value = "/place/{name}")
 	List<Place> getPlacesByName(@PathVariable("name") String name) {
 
 		return placeService.getPlacesByName(name);
 	}
-
+	
+	@ApiOperation("Create a place")
 	@PostMapping(value = "/")
 	Place createPlace(@RequestBody Place place) {
 
 		return placeService.createPlace(place);
 
 	}
-
+	
+	@ApiOperation("Update a place")
 	@PutMapping(value = "/{idPlace}/")
 	Place editPlace(@RequestBody Place place, @RequestParam("idPlace") Long idPlace) {
 

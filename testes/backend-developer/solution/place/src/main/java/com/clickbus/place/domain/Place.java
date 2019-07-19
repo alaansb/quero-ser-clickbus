@@ -22,7 +22,7 @@ public class Place {
 	private String city;
 	private String state;
 	@CreatedDate
-	@Column(name="created_at", updatable = false)
+	@Column(name="created_at")
 	private Date createdAt;
 	@LastModifiedDate
 	@Column(name="update_at")
@@ -86,16 +86,9 @@ public class Place {
 		return createdAt;
 	}
 
-	public void setcreatedAtAt(Date createdAt) {
-		this.createdAt = createdAt;
-	}
-
 	public Date getUpdateAt() {
 		return updateAt;
 	}
-
-	public void setUpdateAt(Date updateAt) {
-		this.updateAt = updateAt;
-	}
+	
 
 }
